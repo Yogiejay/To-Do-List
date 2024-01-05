@@ -38,16 +38,6 @@
   }
 }
 
-#bt_Submit {
-  background-color: rgb(77, 77, 196);
-}
-
-.addTask {
-  display: inline-block;
-  width: 80%;
-  height: 200px;
-  border: 2px solid rgba(75, 51, 59, 0.148);
-  padding: 10px;
-  text-align: center;
-  font-size: 18px;
+body {
+  background-color: rgb(156, 103, 217);
 }
