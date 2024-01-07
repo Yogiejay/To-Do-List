@@ -10,32 +10,38 @@ function Todo() {
     desc : "default desc",
     status : false,
   },]);
-  const edit = ()=>{
-    
+  const edit = (eleId)=>{
+    items.forEach((e)=>{
+      if (e.id === eleId){
+        getTitle(e.name)
+        getDescription(e.desc)
+      } 
+    })
+  };
+  const deletee = (eleId)=>{
+    setitems(items.filter((ele) => ele.id !== eleId))
   };
   
   let tasklist = items.map((ele,index)=>{
     if (index < items.length - 1) {
         return (
-            <div key={ele.id} id="taskqueue">
+            <div /*key={ele.id}*/ id="taskqueue">
                 <div id = "group">
                     <div>
                     <h4>{ele.name}</h4>
                     <p>{ele.desc}</p>
                     </div>
-                    <button id="edit" onClick={edit}>Edit</button>
-                    <button id="delete" onClick={()=>{
-                        deletee(ele.id)
-                    }}>Delete</button>
+                    <button id="edit" onClick={()=>{edit(ele.id)}}>Edit</button>
+                    <button id="delete" onClick={()=>{deletee(ele.id)}
+                        
+                    }>Delete</button>
                 </div>
             </div>
         );
     }
     
 }) 
-const deletee = (eleId)=>{
-    setitems(items.filter((ele) => ele.id !== eleId))
-  };
+
   function queueTask() {
     if(!Title || !Description){
         alert("Fill Data");
@@ -47,6 +53,8 @@ const deletee = (eleId)=>{
             desc : Description,
         };
         setitems([allInputData,...items]);
+        getTitle("")
+        getDescription("")
     }
     
   }
